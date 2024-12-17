@@ -163,8 +163,12 @@ size_t game_frame = 0;
 /* Game States */
 
 enum game_state {
-    GAME_STATE
+    GAME_STATE,
+    VICTORY_STATE
     // TODO
+
+
+
 };
 game_state game_state = GAME_STATE;
 

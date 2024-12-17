@@ -42,7 +42,8 @@ void update_player() {
     }
     if (is_colliding(player_pos, EXIT)) {
         // TODO
-
+        unload_level();
+        load_level(1);
     }
 }
 

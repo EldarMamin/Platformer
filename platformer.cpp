@@ -33,8 +33,15 @@ void draw_game() {
     // TODO
 
     ClearBackground(BLACK);
-    draw_level();
-    draw_game_overlay();
+    switch (game_state) {
+        case GAME_STATE:
+            draw_level();
+        draw_game_overlay();
+        break;
+        case VICTORY_STATE:
+            draw_victory_menu();
+        break;
+    }
 }
 
 int main() {
