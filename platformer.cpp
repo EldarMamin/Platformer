@@ -9,17 +9,17 @@
 
 void update_game() {
     game_frame++;
-switch (game_state) {
-    case MENU_STATE:
-        if (IsKeyDown(KEY_ENTER)) {
-        game_state = GAME_STATE;
-    }
-    break;
-    case GAME_STATE:
+    switch (game_state) {
+        case MENU_STATE:
+            if (IsKeyDown(KEY_ENTER)) {
+                game_state = GAME_STATE;
+            }
+        break;
+        case GAME_STATE:
 
-        if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) {
-            move_player_horizontally(MOVEMENT_SPEED);
-        }
+            if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) {
+                move_player_horizontally(MOVEMENT_SPEED);
+            }
         if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) {
             move_player_horizontally(-MOVEMENT_SPEED);
         }
@@ -27,17 +27,20 @@ switch (game_state) {
         // Calculating collisions to decide whether the player is allowed to jump: don't want them to suction cup to the ceiling or jump midair
         is_player_on_ground = is_colliding({player_pos.x, player_pos.y + 0.1f}, WALL);
         if ((IsKeyDown(KEY_UP) || IsKeyDown(KEY_W) || IsKeyDown(KEY_SPACE)) && is_player_on_ground) {
-        player_y_velocity = -JUMP_STRENGTH;
-    }
+            player_y_velocity = -JUMP_STRENGTH;
+        }
 
         update_player();
-    break;
-    case VICTORY_STATE:
-
         break;
+        case VICTORY_STATE:
+            if (IsKeyDown(KEY_ENTER)) {
+                game_state = GAME_STATE;
+
+                break;
+            }
+    }
 }
-}
-    // TODO
+
 
 void draw_game() {
     // TODO
