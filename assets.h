@@ -105,7 +105,7 @@ void draw_sprite(sprite &sprite, Vector2 pos, float width, float height) {
 }
 
 void load_sounds() {
-    InitAudioDevice();
+    InitAudioDevice();// TO DO SOUNDS
 
     coin_sound = LoadSound("data/sounds/coin.wav");
     exit_sound = LoadSound("data/sounds/exit.wav");

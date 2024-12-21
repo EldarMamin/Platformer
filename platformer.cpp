@@ -11,6 +11,9 @@ void update_game() {
     game_frame++;
 
     // TODO
+    if (IsKeyDown(KEY_ESCAPE)) {
+
+    }
 
     if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) {
         move_player_horizontally(MOVEMENT_SPEED);
@@ -41,6 +44,9 @@ void draw_game() {
         case VICTORY_STATE:
             draw_victory_menu();
         break;
+        case PAUSE_STATE:
+            draw_pause_menu();
+        break;
     }
 }
 
@@ -52,6 +58,7 @@ int main() {
     load_images();
     load_sounds();
     load_level();
+
 
     while (!WindowShouldClose()) {
         BeginDrawing();

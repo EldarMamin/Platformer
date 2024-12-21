@@ -37,11 +37,30 @@ level LEVEL_1 = {
     LEVEL_1_DATA
 };
 
+char LEVEL_2_DATA[] = {
+    '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',
+    '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#',
+    '#', ' ', '@', ' ', ' ', '#', ' ', ' ', 'E', ' ', '#',
+    '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'
+};
+
+level LEVEL_2 = {
+    7, 11,
+    LEVEL_2_DATA
+};
+
+// TO DO NEW LVL
+
+
 int level_index = 0;
-const int LEVEL_COUNT = 1;
+const int LEVEL_COUNT = 2; // count LVLS
 
 level LEVELS[LEVEL_COUNT] = {
-    LEVEL_1
+    LEVEL_1,
+    LEVEL_2// ADD NEW LVL
 };
 
 /* Loaded Level Data */
@@ -163,6 +182,7 @@ size_t game_frame = 0;
 /* Game States */
 
 enum game_state {
+    PAUSE_STATE,
     GAME_STATE,
     VICTORY_STATE
     // TODO

@@ -33,7 +33,7 @@ void derive_graphics_metrics_from_loaded_level() {
 
 void draw_menu() {
     draw_text(game_title);
-    draw_text(game_subtitle);
+    draw_text(game_subtitle);// TO DO add drawmenu
 }
 
 void draw_game_overlay() {

@@ -44,7 +44,9 @@ void update_player() {
         // TODO
         unload_level();
         load_level(1);
+        PlaySound(exit_sound);
     }
 }
+
 
 #endif // PLAYER_H
