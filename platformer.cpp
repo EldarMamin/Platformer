@@ -12,8 +12,13 @@ void update_game() {
 
     // TODO
     if (IsKeyDown(KEY_ESCAPE)) {
+        game_state = PAUSE_STATE;
 
     }
+    if (IsKeyDown(KEY_ENTER)) {
+       game_state = GAME_STATE;
+    }
+
 
     if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) {
         move_player_horizontally(MOVEMENT_SPEED);
@@ -37,6 +42,9 @@ void draw_game() {
 
     ClearBackground(BLACK);
     switch (game_state) {
+        case MENU_STATE:
+            draw_menu();
+        break;
         case GAME_STATE:
             draw_level();
         draw_game_overlay();

@@ -181,16 +181,17 @@ size_t game_frame = 0;
 
 /* Game States */
 
-enum game_state {
-    PAUSE_STATE,
+enum game_state { // const int Game_STATE = 0
+    MENU_STATE,
     GAME_STATE,
-    VICTORY_STATE
+    PAUSE_STATE,// const int PAUSE_STATE = 1
+    VICTORY_STATE// const int VICTORY_STATE = 2 ENUM- JUST SHORTER VERSION OF ALL THIS
     // TODO
 
 
 
 };
-game_state game_state = GAME_STATE;
+game_state game_state = MENU_STATE; // game_state = int, becouse higher is int, just more beautiful version
 
 /* Forward Declarations */
 
