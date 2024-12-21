@@ -16,6 +16,9 @@ void update_game() {
             }
         break;
         case GAME_STATE:
+            if (IsKeyPressed(KEY_ESCAPE)) {
+                game_state = PAUSE_STATE;
+            }
 
             if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) {
                 move_player_horizontally(MOVEMENT_SPEED);
@@ -32,6 +35,12 @@ void update_game() {
 
         update_player();
         break;
+        case PAUSE_STATE:
+            if (IsKeyPressed(KEY_ENTER)) {
+                game_state = GAME_STATE;
+            }
+        break;
+
         case VICTORY_STATE:
             if (IsKeyPressed(KEY_ENTER)) {
                 game_state = MENU_STATE;
@@ -73,7 +82,7 @@ int main() {
     load_sounds();
     load_level();
 
-
+    SetExitKey(0);
     while (!WindowShouldClose()) {
         BeginDrawing();
 

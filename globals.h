@@ -52,15 +52,36 @@ level LEVEL_2 = {
     LEVEL_2_DATA
 };
 
+char LEVEL_3_DATA[] = {
+    '#', '#', '#', '#','#','#','#','#',
+    '#', ' ', ' ', ' ',' ',' ',' ','#',
+    '#', '*', ' ', ' ',' ',' ',' ','#',
+    '#', '#', '#', ' ',' ',' ',' ','#',
+    '#', ' ', ' ', ' ',' ',' ',' ','#',
+    '#', ' ', ' ', ' ',' ',' ',' ','#',
+    '#', ' ', ' ', ' ',' ',' ','E','#',
+    '#', '#', '#', ' ',' ',' ','#','#',
+    '#', ' ', ' ', ' ',' ',' ',' ','#',
+    '#', ' ', ' ', ' ',' ',' ',' ','#',
+    '#', '@', ' ', ' ',' ',' ',' ','#',
+    '#', '#', '#', '#','#','#','#','#'
+};
+
+level LEVEL_3 = {
+    12, 8,
+    LEVEL_3_DATA
+};
+
 // TO DO NEW LVL
 
 
 int level_index = 0;
-const int LEVEL_COUNT = 2; // count LVLS
+const int LEVEL_COUNT = 3; // count LVLS
 
 level LEVELS[LEVEL_COUNT] = {
     LEVEL_1,
-    LEVEL_2// ADD NEW LVL
+    LEVEL_2,
+    LEVEL_3// ADD NEW LVL
 };
 
 /* Loaded Level Data */
