@@ -11,7 +11,7 @@ void update_game() {
     game_frame++;
     switch (game_state) {
         case MENU_STATE:
-            if (IsKeyDown(KEY_ENTER)) {
+            if (IsKeyPressed(KEY_ENTER)) {
                 game_state = GAME_STATE;
             }
         break;
@@ -33,11 +33,10 @@ void update_game() {
         update_player();
         break;
         case VICTORY_STATE:
-            if (IsKeyDown(KEY_ENTER)) {
-                game_state = GAME_STATE;
-
-                break;
+            if (IsKeyPressed(KEY_ENTER)) {
+                game_state = MENU_STATE;
             }
+        break;
     }
 }
 
@@ -49,6 +48,8 @@ void draw_game() {
     switch (game_state) {
         case MENU_STATE:
             draw_menu();
+        load_level(0);
+        player_score = 0;
         break;
         case GAME_STATE:
             draw_level();

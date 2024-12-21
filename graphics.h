@@ -36,7 +36,7 @@ void draw_menu() {
     draw_text(game_subtitle);// TO DO add drawmenu
 }
 
-void draw_game_overlay() {
+void  draw_game_overlay() {
     Text score = {
         "Score " + std::to_string(player_score),
         { 0.50f, 0.05f },

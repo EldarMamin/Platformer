@@ -187,9 +187,6 @@ enum game_state { // const int Game_STATE = 0
     PAUSE_STATE,// const int PAUSE_STATE = 1
     VICTORY_STATE// const int VICTORY_STATE = 2 ENUM- JUST SHORTER VERSION OF ALL THIS
     // TODO
-
-
-
 };
 game_state game_state = MENU_STATE; // game_state = int, becouse higher is int, just more beautiful version
 
