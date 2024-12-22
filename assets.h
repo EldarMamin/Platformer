@@ -20,10 +20,11 @@ void load_images() {
     air_image     = LoadTexture("data/images/air.png");
     exit_image    = LoadTexture("data/images/exit.png");
     enemy_image   = LoadTexture("data/images/enemy/enemy.png");
-    heart_image   = LoadTexture("data/images/heart.png");
     coin_sprite   = load_sprite("data/images/coin/coin",".png", 3, true, 18);
     gem_sprite    = load_sprite("data/images/gem/gem",".png", 3, true, 18);
     player_sprite = load_sprite("data/images/player/player", ".png", 3, true, 10);
+    heart_sprite   = load_sprite("data/images/heart/heart",".png", 3, true, 18);
+
 
 }
 
@@ -32,10 +33,10 @@ void unload_images() {
     UnloadTexture(air_image);
     UnloadTexture(exit_image);
     UnloadTexture(enemy_image);
-    UnloadTexture(heart_image);
     unload_sprite(player_sprite);
     unload_sprite(coin_sprite);
     unload_sprite(gem_sprite);
+    unload_sprite(heart_sprite);
 }
 
 void draw_image(Texture2D image, Vector2 pos, float size) {
@@ -121,6 +122,7 @@ void load_sounds() {
     victory_sound    = LoadSound("data/sounds/victory.mp3");
     damage_sound     = LoadSound("data/sounds/damage.mp3");
     gameover_sound   = LoadSound("data/sounds/gameover.mp3");
+    heart_sound      = LoadSound("data/sounds/heart.mp3");
 
 }
 
@@ -132,6 +134,7 @@ void unload_sounds() {
     UnloadSound(victory_sound);
     UnloadSound(damage_sound);
     UnloadSound(gameover_sound);
+    UnloadSound(heart_sound);
 }
 
 #endif // IMAGES_H

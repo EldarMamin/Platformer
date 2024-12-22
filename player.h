@@ -61,6 +61,11 @@ void update_player() {
             game_state = LOOSE_STATE;
         }
     }
+    if (is_colliding(player_pos, HEART)) {
+        get_collider(player_pos, HEART) = ' ';
+        player_health += 1;
+        PlaySound(heart_sound);
+    }
 }
 
 

@@ -50,6 +50,7 @@ void update_game() {
 
         case LOOSE_STATE:
             if (IsKeyPressed(KEY_ENTER)) {
+                level_index = 0;
                 game_state = MENU_STATE;
             }
         break;

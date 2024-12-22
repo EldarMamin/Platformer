@@ -95,6 +95,9 @@ void draw_level() {
                 case ENEMY:
                     draw_image(enemy_image, pos, cell_size);
                 break;
+                case HEART:
+                    draw_sprite(heart_sprite, pos, cell_size);
+                break;
                 case GEM:
                     draw_sprite(gem_sprite, pos, cell_size);
                 break;
@@ -187,6 +190,7 @@ void draw_victory_menu() {
 
     draw_text(victory_title);
     draw_text(victory_subtitle);
+    draw_text(score_counter);
 }
 
 #endif // GRAPHICS_H
