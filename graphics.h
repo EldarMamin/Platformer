@@ -190,6 +190,12 @@ void draw_victory_menu() {
 
     draw_text(victory_title);
     draw_text(victory_subtitle);
+    //SHOWS SCORE COUNTER ON THE VICTORY SCREEN
+    Text score_counter = {
+        "Your score is " + std::to_string(player_score),
+        { 0.49f, 0.75f },
+        20.0f,
+    };
     draw_text(score_counter);
 }
 

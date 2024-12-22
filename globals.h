@@ -173,10 +173,7 @@ level LEVEL_6 = {
     LEVEL_6_DATA
 };
 
-
 // TO DO NEW LVL
-
-
 int level_index = 0;
 const int LEVEL_COUNT = 6; // count LVLS
 
@@ -275,11 +272,6 @@ Text victory_subtitle = {
     "Press Enter to go back to menu",
     { 0.50f, 0.65f }
 };
-Text score_counter = {
-    "Your score is " + player_score,
-    { 0.49f, 0.75f },
-    20.0f,
-};
 
 /* Images and Sprites */
 
@@ -349,7 +341,7 @@ enum game_state { // const int Game_STATE = 0
     LOOSE_STATE// const int VICTORY_STATE = 2 ENUM- JUST SHORTER VERSION OF ALL THIS
     // TODO
 };
-game_state game_state = MENU_STATE; // game_state = int, becouse higher is int, just more beautiful version
+game_state game_state = GAME_STATE; // game_state = int, becouse higher is int, just more beautiful version
 
 /* Forward Declarations */
 
