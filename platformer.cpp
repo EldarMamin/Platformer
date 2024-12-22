@@ -12,6 +12,7 @@ void update_game() {
     switch (game_state) {
         case MENU_STATE:
             if (IsKeyPressed(KEY_ENTER)) {
+                ResumeSound(background_sound);
                 game_state = GAME_STATE;
             }
         break;
@@ -37,12 +38,17 @@ void update_game() {
         break;
         case PAUSE_STATE:
             if (IsKeyPressed(KEY_ENTER)) {
-                ResumeSound(background_sound);
                 game_state = GAME_STATE;
             }
         break;
 
         case VICTORY_STATE:
+            if (IsKeyPressed(KEY_ENTER)) {
+                game_state = MENU_STATE;
+            }
+        break;
+
+        case LOOSE_STATE:
             if (IsKeyPressed(KEY_ENTER)) {
                 game_state = MENU_STATE;
             }
@@ -54,29 +60,36 @@ void update_game() {
 void draw_game() {
    //*Set volume*//
     SetSoundVolume(background_sound, 0.05);
-
     ClearBackground(BLACK);
     switch (game_state) {
         case MENU_STATE:
+            StopSound(background_sound);
             draw_menu();
             load_level(0);
-            PlaySound(background_sound);
             player_score = 0;
+            player_health = 3;
         break;
         case GAME_STATE:
-
             draw_level();
             draw_game_overlay();
         break;
+
         case VICTORY_STATE:
             StopSound(background_sound);
             draw_victory_menu();
         break;
+
         case PAUSE_STATE:
             PauseSound(background_sound);
             draw_pause_menu();
         break;
+
+        case LOOSE_STATE:
+            StopSound(background_sound);
+            draw_loose_menu();
+        break;
     }
+
 }
 
 int main() {
@@ -90,6 +103,9 @@ int main() {
 
     SetExitKey(0);
     while (!WindowShouldClose()) {
+        if (!IsSoundPlaying(background_sound)) {
+            PlaySound(background_sound);
+        }
         BeginDrawing();
 
         update_game();

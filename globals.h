@@ -15,6 +15,7 @@ const char PLAYER = '@';
 const char COIN   = '*';
 const char EXIT   = 'E';
 const char GEM    = '+';
+const char ENEMY  = '$';
 
 /* Levels */
 
@@ -135,6 +136,8 @@ bool is_player_on_ground;
 
 int player_score = 0;
 
+int player_health = 3;
+
 /* Graphic Metrics */
 
 const float CELL_SCALE = 0.8f; // An aesthetic parameter to add some negative space around level
@@ -177,6 +180,19 @@ Text game_paused = {
     "Press Escape to Resume"
 };
 
+Text loose_title = {
+    "Game over",
+    { 0.50f, 0.50f },
+    100.0f,
+    RED
+};
+
+Text loose_subtitle = {
+    "Press Enter to go back to menu",
+    { 0.50f, 0.65f }
+};
+
+
 Text victory_title = {
     "You Won!",
     { 0.50f, 0.50f },
@@ -195,6 +211,8 @@ Texture2D wall_image;
 Texture2D air_image;
 Texture2D exit_image;
 Texture2D gem_image;
+Texture2D enemy_image;
+Texture2D heart_image;
 
 struct sprite {
     size_t frame_count    = 0;
@@ -216,7 +234,9 @@ Sound coin_sound;
 Sound exit_sound;
 Sound gem_sound;
 Sound background_sound;
-
+Sound victory_sound;
+Sound damage_sound;
+Sound gameover_sound;
 /* Victory Menu Background */
 
 struct victory_ball {
@@ -243,7 +263,8 @@ enum game_state { // const int Game_STATE = 0
     MENU_STATE,
     GAME_STATE,
     PAUSE_STATE,// const int PAUSE_STATE = 1
-    VICTORY_STATE// const int VICTORY_STATE = 2 ENUM- JUST SHORTER VERSION OF ALL THIS
+    VICTORY_STATE,
+    LOOSE_STATE// const int VICTORY_STATE = 2 ENUM- JUST SHORTER VERSION OF ALL THIS
     // TODO
 };
 game_state game_state = MENU_STATE; // game_state = int, becouse higher is int, just more beautiful version

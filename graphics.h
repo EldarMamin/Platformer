@@ -49,8 +49,24 @@ void  draw_game_overlay() {
         GRAY
     };
 
+    Text health = {
+        "Health " + std::to_string(player_health),
+        { 0.1f, 0.05f },
+        25.0f,
+
+    };
+
+    Text health_shadow = {
+        "Health " + std::to_string(player_health),
+        { 0.103f, 0.055f },
+        25.0f,
+        GRAY
+    };
+
     draw_text(score_shadow);
     draw_text(score);
+    draw_text(health_shadow);
+    draw_text(health);
 }
 
 void draw_level() {
@@ -76,6 +92,9 @@ void draw_level() {
             }
             // The second image layer
             switch (cell) {
+                case ENEMY:
+                    draw_image(enemy_image, pos, cell_size);
+                break;
                 case GEM:
                     draw_sprite(gem_sprite, pos, cell_size);
                 break;
@@ -105,6 +124,11 @@ void draw_player() {
 
 void draw_pause_menu() {
     draw_text(game_paused);
+}
+
+void draw_loose_menu() {
+    draw_text(loose_title);
+    draw_text(loose_subtitle);
 }
 
 void create_victory_menu_background() {

@@ -19,15 +19,20 @@ void load_images() {
     wall_image    = LoadTexture("data/images/wall.png");
     air_image     = LoadTexture("data/images/air.png");
     exit_image    = LoadTexture("data/images/exit.png");
+    enemy_image   = LoadTexture("data/images/enemy/enemy.png");
+    heart_image   = LoadTexture("data/images/heart.png");
     coin_sprite   = load_sprite("data/images/coin/coin",".png", 3, true, 18);
     gem_sprite    = load_sprite("data/images/gem/gem",".png", 3, true, 18);
     player_sprite = load_sprite("data/images/player/player", ".png", 3, true, 10);
+
 }
 
 void unload_images() {
     UnloadTexture(wall_image);
     UnloadTexture(air_image);
     UnloadTexture(exit_image);
+    UnloadTexture(enemy_image);
+    UnloadTexture(heart_image);
     unload_sprite(player_sprite);
     unload_sprite(coin_sprite);
     unload_sprite(gem_sprite);
@@ -113,6 +118,10 @@ void load_sounds() {
     exit_sound       = LoadSound("data/sounds/exit.wav");
     gem_sound        = LoadSound("data/sounds/gem.wav");
     background_sound = LoadSound("data/sounds/background.mp3");
+    victory_sound    = LoadSound("data/sounds/victory.mp3");
+    damage_sound     = LoadSound("data/sounds/damage.mp3");
+    gameover_sound   = LoadSound("data/sounds/gameover.mp3");
+
 }
 
 void unload_sounds() {
@@ -120,6 +129,9 @@ void unload_sounds() {
     UnloadSound(exit_sound);
     UnloadSound(gem_sound);
     UnloadSound(background_sound);
+    UnloadSound(victory_sound);
+    UnloadSound(damage_sound);
+    UnloadSound(gameover_sound);
 }
 
 #endif // IMAGES_H

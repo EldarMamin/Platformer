@@ -45,6 +45,7 @@ void load_level(int offset) {
         create_victory_menu_background();
         level_index = 0;
         game_state = VICTORY_STATE;
+        PlaySound(victory_sound);
         return;
     }
 

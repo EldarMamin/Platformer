@@ -50,6 +50,17 @@ void update_player() {
         load_level(1);
         PlaySound(exit_sound);
     }
+    if (is_colliding(player_pos, ENEMY)) {
+        game_state = GAME_STATE;
+        PlaySound(damage_sound);
+        player_health -= 1;
+        load_level(0);
+        if (player_health <= 0) {
+            StopSound(damage_sound);
+            PlaySound(gameover_sound);
+            game_state = LOOSE_STATE;
+        }
+    }
 }
 
 
