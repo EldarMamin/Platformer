@@ -37,6 +37,7 @@ void update_game() {
         break;
         case PAUSE_STATE:
             if (IsKeyPressed(KEY_ENTER)) {
+                ResumeSound(background_sound);
                 game_state = GAME_STATE;
             }
         break;
@@ -51,23 +52,28 @@ void update_game() {
 
 
 void draw_game() {
-    // TODO
+   //*Set volume*//
+    SetSoundVolume(background_sound, 0.05);
 
     ClearBackground(BLACK);
     switch (game_state) {
         case MENU_STATE:
             draw_menu();
-        load_level(0);
-        player_score = 0;
+            load_level(0);
+            PlaySound(background_sound);
+            player_score = 0;
         break;
         case GAME_STATE:
+
             draw_level();
-        draw_game_overlay();
+            draw_game_overlay();
         break;
         case VICTORY_STATE:
+            StopSound(background_sound);
             draw_victory_menu();
         break;
         case PAUSE_STATE:
+            PauseSound(background_sound);
             draw_pause_menu();
         break;
     }
