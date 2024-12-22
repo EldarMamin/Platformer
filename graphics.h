@@ -67,7 +67,6 @@ void draw_level() {
             switch (cell) {
                 case AIR:
                 case PLAYER:
-                case COIN:
                 case EXIT:
                     draw_image(air_image, pos, cell_size);
                     break;
@@ -77,6 +76,9 @@ void draw_level() {
             }
             // The second image layer
             switch (cell) {
+                case GEM:
+                    draw_sprite(gem_sprite, pos, cell_size);
+                break;
                 case COIN:
                     draw_sprite(coin_sprite, pos, cell_size);
                     break;

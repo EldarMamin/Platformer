@@ -40,6 +40,11 @@ void update_player() {
         player_score+=10;
         PlaySound(coin_sound);
     }
+    if (is_colliding(player_pos, GEM)) {
+        get_collider(player_pos, GEM) = ' ';
+        player_score+=50;
+        PlaySound(gem_sound);
+    }
     if (is_colliding(player_pos, EXIT)) {
         // TODO
         load_level(1);
